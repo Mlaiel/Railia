@@ -123,7 +123,7 @@ import SatelliteMeshNetwork from './components/SatelliteMeshNetwork.tsx'
 import EmotionalAI from './components/EmotionalAI.tsx'
 import HolographicDisplays from './components/HolographicDisplays.tsx'
 
-// Neueste fortschrittliche Technologien
+// Latest advanced technologies
 import PassengerHolographicDisplays from './components/PassengerHolographicDisplays.tsx'
 import NanoSensorInfrastructure from './components/NanoSensorInfrastructure.tsx'
 import BrainComputerInterface from './components/BrainComputerInterface.tsx'
@@ -165,7 +165,7 @@ function App() {
 
   const [alerts] = useKV('active-alerts', JSON.stringify([]))
 
-  // Parse les données JSON
+  // Parse JSON data
   const parsedSystemStatus = systemStatus ? JSON.parse(systemStatus) : {
     operational: true,
     lastUpdate: new Date().toISOString(),
@@ -176,97 +176,97 @@ function App() {
   
   const parsedAlerts = alerts ? JSON.parse(alerts) : []
 
-  // Organisation des modules en catégories
+  // Module organization in categories
   const moduleCategories = {
     featured: {
-      name: '⭐ Modules Favoris',
+      name: '⭐ Favorisierte Module',
       icon: Star,
       modules: [
-        { id: 'doors', name: 'Tür-Intelligenz', icon: DoorOpen, component: DoorAnalytics, description: 'Analyse intelligente des portes' },
-        { id: 'surveillance', name: 'Gleis-Überwachung', icon: ShieldCheck, component: TrackSurveillance, description: 'Surveillance des voies en temps réel' },
-        { id: 'medical', name: 'Notfall-Erkennung', icon: Heart, component: MedicalMonitoring, description: 'Détection d\'urgences médicales' },
-        { id: 'weather', name: 'Naturgefahren-Management', icon: CloudRain, component: WeatherForecasting, description: 'Gestion des dangers naturels' }
+        { id: 'doors', name: 'Tür-Intelligenz', icon: DoorOpen, component: DoorAnalytics, description: 'Intelligente Türsystemanalyse' },
+        { id: 'surveillance', name: 'Gleisüberwachung', icon: ShieldCheck, component: TrackSurveillance, description: 'Echtzeitüberwachung der Gleisanlagen' },
+        { id: 'medical', name: 'Notfallerkennung', icon: Heart, component: MedicalMonitoring, description: 'Automatische Erkennung medizinischer Notfälle' },
+        { id: 'weather', name: 'Naturgefahren-Management', icon: CloudRain, component: WeatherForecasting, description: 'Verwaltung natürlicher Gefahren' }
       ]
     },
     basic: {
-      name: '🎯 Modules de Base',
+      name: '🎯 Grundlegende Module',
       icon: Target,
       modules: [
-        { id: 'test', name: 'Test-Komponente', icon: Activity, component: TestComponent, description: 'Tests et diagnostics' },
-        { id: 'component-tester', name: 'Komponenten-Tester', icon: Gear, component: ComponentTester, description: 'Testeur de composants' },
-        { id: 'tracking', name: 'Echtzeit-Verfolgung', icon: MapPin, component: RealTimeTracking, description: 'Suivi en temps réel' },
-        { id: 'emergency', name: 'Notfall-Koordination', icon: Siren, component: EmergencyCoordination, description: 'Coordination d\'urgence' },
-        { id: 'network', name: 'Netzwerk-Optimierung', icon: Network, component: NetworkDashboard, description: 'Optimisation réseau' },
-        { id: 'vr-training', name: 'VR-Schulungen', icon: Cube, component: VRTraining, description: 'Formation en réalité virtuelle' }
+        { id: 'test', name: 'Test-Komponente', icon: Activity, component: TestComponent, description: 'System-Tests und Diagnostik' },
+        { id: 'component-tester', name: 'Komponenten-Tester', icon: Gear, component: ComponentTester, description: 'Automatische Komponententests' },
+        { id: 'tracking', name: 'Echtzeit-Verfolgung', icon: MapPin, component: RealTimeTracking, description: 'Live-Tracking von Zügen und Fahrgästen' },
+        { id: 'emergency', name: 'Notfall-Koordination', icon: Siren, component: EmergencyCoordination, description: 'Zentrale Notfallkoordination' },
+        { id: 'network', name: 'Netzwerk-Optimierung', icon: Network, component: NetworkDashboard, description: 'Optimierung der Netzwerkinfrastruktur' },
+        { id: 'vr-training', name: 'VR-Schulungen', icon: Cube, component: VRTraining, description: 'Virtual Reality Trainingsmodule für Bahnpersonal' }
       ]
     },
     drones: {
-      name: '🚁 Drones & Systèmes Autonomes',
+      name: '🚁 Drohnen & Autonome Systeme',
       icon: Drone,
       modules: [
-        { id: 'drone-fleet', name: 'Autonome Drohnen-Flotte', icon: Drone, component: AutonomousDroneFleet, description: 'Flotte de drones autonomes' },
-        { id: 'drone-patrol', name: 'Drohnen-Patrouillen', icon: Eye, component: DronePatrol, description: 'Patrouilles automatisées' },
-        { id: 'multi-agent', name: 'Multi-Agent-Systeme', icon: Users, component: CooperativeMultiAgentSystem, description: 'Systèmes multi-agents' }
+        { id: 'drone-fleet', name: 'Autonome Drohnenflotte', icon: Drone, component: AutonomousDroneFleet, description: 'Intelligente Drohnenflotte zur Überwachung' },
+        { id: 'drone-patrol', name: 'Drohnenpatrouillen', icon: Eye, component: DronePatrol, description: 'Automatisierte Sicherheitspatrouillen' },
+        { id: 'multi-agent', name: 'Multi-Agent-Systeme', icon: Users, component: CooperativeMultiAgentSystem, description: 'Kooperative Mehragentensysteme' }
       ]
     },
     ai: {
-      name: '🧠 Intelligence Artificielle',
+      name: '🧠 Künstliche Intelligenz',
       icon: Brain,
       modules: [
-        { id: 'reinforcement-learning', name: 'Reinforcement Learning', icon: Brain, component: ReinforcementLearningOptimizer, description: 'Apprentissage par renforcement' },
-        { id: 'rainbow-dqn', name: 'Rainbow DQN System', icon: Target, component: RainbowDQNSystem, description: 'Système DQN avancé' },
-        { id: 'meta-learning', name: 'Meta-Learning', icon: Lightning, component: MetaLearningSystem, description: 'Méta-apprentissage' },
-        { id: 'neural-search', name: 'Neural Architecture Search', icon: MagnifyingGlass, component: NeuralArchitectureSearch, description: 'Recherche d\'architecture neuronale' },
-        { id: 'federated-learning', name: 'Federated Learning', icon: Globe, component: FederatedLearningSystem, description: 'Apprentissage fédéré' },
-        { id: 'dynamic-topology', name: 'Dynamische Topologie', icon: FlowArrow, component: DynamicTopologySystem, description: 'Topologie dynamique' }
+        { id: 'reinforcement-learning', name: 'Verstärkungslernen', icon: Brain, component: ReinforcementLearningOptimizer, description: 'Optimierung durch Verstärkungslernen' },
+        { id: 'rainbow-dqn', name: 'Rainbow DQN System', icon: Target, component: RainbowDQNSystem, description: 'Fortgeschrittenes Deep Q-Network System' },
+        { id: 'meta-learning', name: 'Meta-Learning', icon: Lightning, component: MetaLearningSystem, description: 'Lernen des Lernens - Meta-Algorithmen' },
+        { id: 'neural-search', name: 'Neural Architecture Search', icon: MagnifyingGlass, component: NeuralArchitectureSearch, description: 'Automatische Suche nach Netzwerkarchitekturen' },
+        { id: 'federated-learning', name: 'Föderiertes Lernen', icon: Globe, component: FederatedLearningSystem, description: 'Verteiltes Lernen ohne Datentransfer' },
+        { id: 'dynamic-topology', name: 'Dynamische Topologie', icon: FlowArrow, component: DynamicTopologySystem, description: 'Adaptive Netzwerktopologie' }
       ]
     },
     quantum: {
-      name: '⚛️ Informatique Quantique',
+      name: '⚛️ Quanteninformatik',
       icon: Atom,
       modules: [
-        { id: 'quantum-ml', name: 'Quantum Machine Learning', icon: Database, component: QuantumMachineLearning, description: 'ML quantique' },
-        { id: 'neuromorphic', name: 'Neuromorphic Computing', icon: GearSix, component: NeuromorphicComputing, description: 'Calcul neuromorphique' },
-        { id: 'quantum-hybrid', name: 'Quantum-Neuromorphic Hybrid', icon: Lightning, component: QuantumNeuromorphicHybridSystem, description: 'Système hybride quantique' },
-        { id: 'bio-quantum', name: 'Bio-Quantum Neural Networks', icon: Brain, component: BioInspiredQuantumNeuralNetworks, description: 'Réseaux bio-quantiques' }
+        { id: 'quantum-ml', name: 'Quantum Machine Learning', icon: Database, component: QuantumMachineLearning, description: 'Maschinelles Lernen mit Quantencomputing' },
+        { id: 'neuromorphic', name: 'Neuromorphes Computing', icon: GearSix, component: NeuromorphicComputing, description: 'Gehirn-inspirierte Rechensysteme' },
+        { id: 'quantum-hybrid', name: 'Quantum-Neuromorphes Hybridsystem', icon: Lightning, component: QuantumNeuromorphicHybridSystem, description: 'Kombination aus Quanten- und neuromorpher Technik' },
+        { id: 'bio-quantum', name: 'Bio-Quanten-Neuronale Netze', icon: Brain, component: BioInspiredQuantumNeuralNetworks, description: 'Biologisch inspirierte Quantennetzwerke' }
       ]
     },
     maintenance: {
-      name: '🔧 Maintenance & Prédiction',
+      name: '🔧 Wartung & Vorhersage',
       icon: Wrench,
       modules: [
-        { id: 'predictive-models', name: 'Erweiterte Vorhersagemodelle', icon: TrendUp, component: AdvancedPredictiveModels, description: 'Modèles prédictifs avancés' },
-        { id: 'maintenance-ai', name: 'KI-Wartungsvorhersage', icon: Wrench, component: PredictiveMaintenanceAI, description: 'Prédiction de maintenance IA' },
-        { id: 'iot-sensors', name: 'IoT-Sensor-Überwachung', icon: Target, component: IoTSensorMonitoring, description: 'Surveillance IoT' },
-        { id: 'ar-maintenance', name: 'AR-Wartungsanleitungen', icon: Eye, component: ARMaintenanceGuide, description: 'Guide maintenance AR' },
-        { id: 'maintenance-planning', name: 'Wartungsplanung', icon: ChartBar, component: MaintenancePlanning, description: 'Planification maintenance' }
+        { id: 'predictive-models', name: 'Erweiterte Vorhersagemodelle', icon: TrendUp, component: AdvancedPredictiveModels, description: 'KI-basierte Verspätungsvorhersage' },
+        { id: 'maintenance-ai', name: 'KI-Wartungsvorhersage', icon: Wrench, component: PredictiveMaintenanceAI, description: 'Prädiktive Wartung mit Künstlicher Intelligenz' },
+        { id: 'iot-sensors', name: 'IoT-Sensorüberwachung', icon: Target, component: IoTSensorMonitoring, description: 'Intelligente Sensorüberwachung' },
+        { id: 'ar-maintenance', name: 'AR-Wartungsanleitungen', icon: Eye, component: ARMaintenanceGuide, description: 'Augmented Reality Wartungsassistenz' },
+        { id: 'maintenance-planning', name: 'Wartungsplanung', icon: ChartBar, component: MaintenancePlanning, description: 'Optimierte Wartungsplanung' }
       ]
     },
     passengers: {
-      name: '👥 Gestion Passagers',
+      name: '👥 Fahrgastmanagement',
       icon: Users,
       modules: [
-        { id: 'passenger-flow', name: 'Passagierfluss-Optimierung', icon: Users, component: PassengerFlow, description: 'Optimisation flux passagers' },
-        { id: 'predictive-analytics', name: 'Predictive Analytics', icon: Graph, component: PredictiveAnalytics, description: 'Analytique prédictive' },
-        { id: 'passenger-notifications', name: 'Passagier-Benachrichtigungen', icon: ChatCircle, component: PassengerNotifications, description: 'Notifications passagers' },
-        { id: 'social-media', name: 'Social Media Integration', icon: Globe, component: SocialMediaIntegration, description: 'Intégration médias sociaux' }
+        { id: 'passenger-flow', name: 'Fahrgastfluss-Optimierung', icon: Users, component: PassengerFlow, description: 'Optimierung der Fahrgastströme' },
+        { id: 'predictive-analytics', name: 'Prädiktive Analytik', icon: Graph, component: PredictiveAnalytics, description: 'Vorhersagebasierte Datenanalyse' },
+        { id: 'passenger-notifications', name: 'Fahrgastbenachrichtigungen', icon: ChatCircle, component: PassengerNotifications, description: 'Intelligente Kommunikation mit Fahrgästen' },
+        { id: 'social-media', name: 'Social Media Integration', icon: Globe, component: SocialMediaIntegration, description: 'Integration sozialer Medien' }
       ]
     },
     future: {
-      name: '🚀 Technologies Futures',
+      name: '🚀 Zukunftstechnologien',
       icon: Rocket,
       modules: [
-        { id: 'autonomous-rail-capsules', name: 'Autonome Bahn-Capsules', icon: Rocket, component: AutonomousRailCapsules, description: 'Capsules ferroviaires autonomes' },
-        { id: 'dna-computing', name: 'DNA-Computing System', icon: Dna, component: DNAComputingSystem, description: 'Système de calcul ADN' },
-        { id: 'protein-folding-3d', name: 'Protein-Faltungs-3D-Viewer', icon: Flask, component: ProteinFoldingVisualization, description: 'Visualisation 3D protéines' },
-        { id: 'brain-computer-interface', name: 'Brain-Computer-Interface', icon: Brain, component: BrainComputerInterface, description: 'Interface cerveau-ordinateur' },
-        { id: 'quantum-teleportation', name: 'Quantenteleportation', icon: Lightning, component: QuantumTeleportationSystem, description: 'Téléportation quantique' },
-        { id: 'time-travel-algorithms', name: 'Time-Travel-Algorithms', icon: Clock, component: TimeTravelAlgorithmSystem, description: 'Algorithmes de voyage temporel' }
+        { id: 'autonomous-rail-capsules', name: 'Autonome Bahnkapseln', icon: Rocket, component: AutonomousRailCapsules, description: 'Selbstfahrende Bahnkapseln der Zukunft' },
+        { id: 'dna-computing', name: 'DNA-Computing System', icon: Dna, component: DNAComputingSystem, description: 'Biologisches Computing mit DNA-Speicher' },
+        { id: 'protein-folding-3d', name: 'Proteinfaltungs-3D-Viewer', icon: Flask, component: ProteinFoldingVisualization, description: '3D-Visualisierung von Proteinfaltung' },
+        { id: 'brain-computer-interface', name: 'Gehirn-Computer-Schnittstelle', icon: Brain, component: BrainComputerInterface, description: 'Direkte Gehirn-Computer-Kommunikation' },
+        { id: 'quantum-teleportation', name: 'Quantenteleportation', icon: Lightning, component: QuantumTeleportationSystem, description: 'Quantenmechanische Informationsübertragung' },
+        { id: 'time-travel-algorithms', name: 'Zeitreise-Algorithmen', icon: Clock, component: TimeTravelAlgorithmSystem, description: 'Theoretische Zeitmanipulationsalgorithmen' }
       ]
     }
   }
 
-  // Fonction pour obtenir tous les modules
+  // Function to get all modules
   const getAllModules = (): ModuleType[] => {
     const allModules: ModuleType[] = []
     Object.values(moduleCategories).forEach(category => {
@@ -277,7 +277,7 @@ function App() {
 
   const modules = getAllModules()
 
-  // Type pour les modules
+  // Type for modules
   type ModuleType = {
     id: string
     name: string
@@ -286,7 +286,7 @@ function App() {
     description: string
   }
 
-  // Fonction pour filtrer les modules selon la recherche
+  // Function to filter modules according to search query
   const getFilteredModules = (categoryModules: ModuleType[]) => {
     if (!searchQuery) return categoryModules
     return categoryModules.filter((module: ModuleType) => 
@@ -295,7 +295,7 @@ function App() {
     )
   }
 
-  // Fonction pour basculer l'expansion d'une catégorie
+  // Function to toggle category expansion
   const toggleCategory = (categoryKey: string) => {
     setExpandedCategories(prev => 
       prev.includes(categoryKey) 
@@ -304,7 +304,7 @@ function App() {
     )
   }
 
-  // Fonction pour basculer les favoris
+  // Function to toggle favorites
   const toggleFavorite = (moduleId: string) => {
     setFavoriteModules(prev => 
       prev.includes(moduleId)
@@ -496,7 +496,7 @@ function App() {
                 const filteredModules = getFilteredModules(category.modules)
                 const isExpanded = expandedCategories.includes(categoryKey)
                 
-                // Masquer les catégories vides lors de la recherche
+                // Hide empty categories during search
                 if (searchQuery && filteredModules.length === 0) return null
 
                 return (
@@ -610,17 +610,17 @@ function App() {
                 <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
                   <Activity size={16} className="text-primary" />
                 </div>
-                <h3 className="font-medium text-sm">Statistiques Rapides</h3>
+                <h3 className="font-medium text-sm">Schnelle Statistiken</h3>
               </div>
               
               <div className="grid grid-cols-2 gap-3">
                 <div className="text-center p-2 bg-white/50 rounded-lg">
                   <div className="text-lg font-bold text-primary">{modules.length}</div>
-                  <div className="text-xs text-muted-foreground">Modules</div>
+                  <div className="text-xs text-muted-foreground">Module</div>
                 </div>
                 <div className="text-center p-2 bg-white/50 rounded-lg">
                   <div className="text-lg font-bold text-green-600">{favoriteModules.length}</div>
-                  <div className="text-xs text-muted-foreground">Favoris</div>
+                  <div className="text-xs text-muted-foreground">Favoriten</div>
                 </div>
               </div>
             </div>
@@ -634,7 +634,7 @@ function App() {
                   </div>
                   <div>
                     <CardTitle className="text-lg">System-Status</CardTitle>
-                    <p className="text-xs text-muted-foreground">Temps réel</p>
+                    <p className="text-xs text-muted-foreground">Echtzeit</p>
                   </div>
                 </div>
               </CardHeader>
@@ -642,7 +642,7 @@ function App() {
                 {/* Network Performance */}
                 <div className="space-y-2">
                   <div className="flex justify-between items-center">
-                    <span className="text-sm font-medium">Performance Réseau</span>
+                    <span className="text-sm font-medium">Netzwerk-Performance</span>
                     <span className="text-lg font-bold text-primary">{parsedSystemStatus.networkHealth}%</span>
                   </div>
                   <Progress 
@@ -651,7 +651,7 @@ function App() {
                   />
                   <div className="flex justify-between text-xs text-muted-foreground">
                     <span>Optimal</span>
-                    <span>Excellent</span>
+                    <span>Ausgezeichnet</span>
                   </div>
                 </div>
                 
@@ -662,7 +662,7 @@ function App() {
                       {parsedSystemStatus.activeTrains}
                     </div>
                     <div className="text-xs text-muted-foreground font-medium">
-                      Trains Actifs
+                      Aktive Züge
                     </div>
                     <div className="w-4 h-1 bg-green-500 rounded-full mx-auto"></div>
                   </div>
@@ -671,7 +671,7 @@ function App() {
                       {parsedSystemStatus.criticalAlerts}
                     </div>
                     <div className="text-xs text-muted-foreground font-medium">
-                      Alertes
+                      Warnungen
                     </div>
                     <div className="w-4 h-1 bg-green-500 rounded-full mx-auto"></div>
                   </div>
@@ -679,13 +679,13 @@ function App() {
 
                 {/* Service Status */}
                 <div className="space-y-3">
-                  <h4 className="text-sm font-medium text-muted-foreground">États des Services</h4>
+                  <h4 className="text-sm font-medium text-muted-foreground">Service-Status</h4>
                   <div className="space-y-2">
                     {[
-                      { name: 'IA-Traitement', status: 'actif', color: 'green' },
-                      { name: 'Réseau Caméras', status: 'online', color: 'green' },
-                      { name: 'Données Météo', status: 'live', color: 'blue' },
-                      { name: 'Capteurs Voies', status: 'actif', color: 'green' }
+                      { name: 'KI-Verarbeitung', status: 'aktiv', color: 'green' },
+                      { name: 'Kamera-Netzwerk', status: 'online', color: 'green' },
+                      { name: 'Wetterdaten', status: 'live', color: 'blue' },
+                      { name: 'Gleissensoren', status: 'aktiv', color: 'green' }
                     ].map((service) => (
                       <div key={service.name} className="flex items-center justify-between p-2 bg-white/30 rounded-md">
                         <div className="flex items-center gap-2">
@@ -713,7 +713,7 @@ function App() {
                 {/* Last Update */}
                 <div className="text-center pt-2 border-t border-border/30">
                   <p className="text-xs text-muted-foreground">
-                    Dernière mise à jour: {new Date(parsedSystemStatus.lastUpdate).toLocaleTimeString('fr-FR')}
+                    Letzte Aktualisierung: {new Date(parsedSystemStatus.lastUpdate).toLocaleTimeString('de-DE')}
                   </p>
                 </div>
               </CardContent>
