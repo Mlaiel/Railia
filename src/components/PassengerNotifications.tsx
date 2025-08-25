@@ -42,7 +42,10 @@ import {
   TrendUp,
   X,
   Brain,
-  Activity
+  Activity,
+  Share,
+  Camera,
+  MessageCircle
 } from '@phosphor-icons/react'
 import { 
   generatePersonalizedNotification,
