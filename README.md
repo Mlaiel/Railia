@@ -3,7 +3,8 @@
 [![Lizenz: Proprietär](https://img.shields.io/badge/Lizenz-Proprietär%20(Bildung%2FNGO%2FForschung)-blue)](LICENSE.md)
 [![Status: Demo](https://img.shields.io/badge/Status-Demo%20%2F%20Präsentation-orange)](README.md)
 [![Sprache: Deutsch](https://img.shields.io/badge/Sprache-Deutsch-green)](README.md)
-[![UI: Modernisiert](https://img.shields.io/badge/UI-Modernisiert%20v2.0-brightgreen)](README.md)
+[![UI: Modernisiert](https://img.shields.io/badge/UI-Modernisiert%20v2.1-brightgreen)](README.md)
+[![Module: Fix](https://img.shields.io/badge/Fahrgastbenachrichtigungen-✅%20Funktionsfähig-success)](README.md)
 
 ## 📋 Überblick
 
